@@ -10,7 +10,6 @@ import {
   ListItemText,
   makeStyles,
 } from "@material-ui/core/";
-import Header from "../components/Header";
 import Contatos from "./contato";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +27,6 @@ const HomePage = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
-      <Header />
       <Grid container spacing={3} className={classes.root}>
         <Grid item xs={3}>
           <Paper className={classes.paper}>

@@ -1,10 +1,12 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import MainRoutes from "./routes";
+import Routes from "./routes";
+import Header from "./components/Header";
 
 const App = () => {
   return (
     <Router>
-      <MainRoutes />
+      <Header />
+      <Routes />
     </Router>
   );
 };
