@@ -1,10 +1,10 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import HomePage from "./Pages/home";
+import MainRoutes from "./routes";
 
 const App = () => {
   return (
     <Router>
-      <HomePage />
+      <MainRoutes />
     </Router>
   );
 };
