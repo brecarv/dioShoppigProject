@@ -9,6 +9,7 @@ import {
   ListItemText,
   makeStyles,
 } from "@material-ui/core/";
+import Item from "../components/Item";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,15 +30,9 @@ const HomePage = () => {
         <Paper className={classes.paper}>
           <Typography variant="h5">Categorias</Typography>
           <List>
-            <ListItem>
-              <ListItemText primary="Times nacionais" secondary="3" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Times internacionais" secondary="3" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Times históricos" secondary="3" />
-            </ListItem>
+            <Item name="Times Nacionais" details="3" />
+            <Item name="Times Internacionais" details="2" />
+            <Item name="Times Históricos" details="5" />
           </List>
         </Paper>
       </Grid>
