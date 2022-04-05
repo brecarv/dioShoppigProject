@@ -5,13 +5,13 @@ import {
   Grid,
   Typography,
   Button,
-  TextField,
   List,
   ListItem,
   ListItemText,
   makeStyles,
 } from "@material-ui/core/";
 import Header from "../components/Header";
+import Contatos from "./contato";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,13 +113,7 @@ const HomePage = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container direction="row" xs={12}>
-        <TextField id="name" label="Name" fullWidth />
-        <TextField id="message" label="Message" fullWidth />
-      </Grid>
-      <Button variant="contained" color="primary">
-        Sent
-      </Button>
+      <Contatos />
     </Container>
   );
 };
