@@ -16,17 +16,47 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HomePage = ({ products }) => {
-  console.log(products);
   const classes = useStyles();
+
+  const categories = products.map((category) => {
+    const container = {};
+    container["id"] = category.id_categories;
+    container["name"] = category.name_categories;
+    return container;
+  });
+
+  const category = categories
+    .map(JSON.stringify)
+    .filter(function (item, index, arr) {
+      return arr.indexOf(item, index + 1) === -1;
+    })
+    .map(JSON.parse);
+
+  const arrayCategory = categories.map((category) => category.name);
+  let count = {};
+
+  for (let i = 0; i < arrayCategory.length; i++) {
+    let key = arrayCategory[i];
+    count[key] = count[key] ? count[key] + 1 : 1;
+  }
+
+  console.log(count);
+
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
         <Paper className={classes.paper}>
           <Typography variant="h5">Categorias</Typography>
           <List>
-            <Item name="Times Nacionais" details="3" />
-            <Item name="Times Internacionais" details="2" />
-            <Item name="Times Históricos" details="5" />
+            {category.map((category) => {
+              return (
+                <Item
+                  key={category.id}
+                  name={category.name}
+                  details={count[category.name]}
+                />
+              );
+            })}
           </List>
         </Paper>
       </Grid>
