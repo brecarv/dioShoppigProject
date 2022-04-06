@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Paper,
-  Grid,
-  Typography,
-  Button,
-  List,
-  makeStyles,
-} from "@material-ui/core/";
+import { Paper, Grid, Typography, List, makeStyles } from "@material-ui/core/";
 import Item from "../components/Item";
 import Card from "../components/Card";
 
