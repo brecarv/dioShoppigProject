@@ -40,8 +40,6 @@ const HomePage = ({ products }) => {
     count[key] = count[key] ? count[key] + 1 : 1;
   }
 
-  console.log(count);
-
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
