@@ -8,7 +8,7 @@ import Header from "./components/Header";
 const App = () => {
   return (
     <Provider store={store}>
-      <Container maxWith="xl">
+      <Container maxWidth="xl">
         <Router>
           <Header />
           <Routes />
