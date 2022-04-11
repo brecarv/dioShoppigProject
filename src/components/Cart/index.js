@@ -95,7 +95,12 @@ const Cart = () => {
                           </button>
                         </th>
                         <th>
-                          <button className="badge badge-pill bg-danger">
+                          <button
+                            onClick={() =>
+                              dispatch(cartActions.RemoveItem(cart, item))
+                            }
+                            className="badge badge-pill bg-danger"
+                          >
                             <i className="fas fa-minus"></i>
                           </button>
                         </th>
