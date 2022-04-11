@@ -1,9 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import cartActions from "../store/actions/cart";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart.Cart);
+  const dispatch = useDispatch();
+
+  console.log(cart);
 
   return (
     <>
@@ -55,18 +58,18 @@ const Cart = () => {
                     <th scope="col">Preço</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    {/* <th scope="col">Total</th> */}
+                    <th scope="col">Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   {cart.Cart.map((item) => {
                     return (
-                      <tr>
-                        {/* <th>
+                      <tr key={item.id}>
+                        <th>
                           <button className="badge bg-danger">
                             <i className="fas fa-window-close"></i>
                           </button>
-                        </th> */}
+                        </th>
                         <th>
                           <img
                             className="img-fluid img-thumbnail"
@@ -81,8 +84,13 @@ const Cart = () => {
                           </span>
                         </th>
                         <th>R$ {item.price.toFixed(2)}</th>
-                        {/* <th>
-                          <button className="badge badge-pill bg-primary">
+                        <th>
+                          <button
+                            onClick={() =>
+                              dispatch(cartActions.AddItem(cart, item))
+                            }
+                            className="badge badge-pill bg-primary"
+                          >
                             <i className="fas fa-plus"></i>
                           </button>
                         </th>
@@ -90,7 +98,7 @@ const Cart = () => {
                           <button className="badge badge-pill bg-danger">
                             <i className="fas fa-minus"></i>
                           </button>
-                        </th> */}
+                        </th>
                         <th>R$ {(item.price * item.quantity).toFixed(2)}</th>
                       </tr>
                     );
@@ -100,7 +108,7 @@ const Cart = () => {
                       Total
                     </th>
                     <th colSpan="3">{cart.value} itens</th>
-                    {/* <th colSpan="2">R$ 200.00</th> */}
+                    <th colSpan="2">R$ 200.00</th>
                   </tr>
                 </tbody>
               </table>
