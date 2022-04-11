@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Card = ({ name, price, imgUrl, children }) => {
+const Card = ({ product, children }) => {
   const cart = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -30,13 +30,17 @@ const Card = ({ name, price, imgUrl, children }) => {
       <Paper className={classes.paper}>
         <Grid container direction="column">
           <Grid item>
-            <img width="140px" src={imgUrl} alt={name} />
+            <img
+              width="140px"
+              src={product.imgUrl}
+              alt={product.name_product}
+            />
             <Typography variant="h6">{children}</Typography>
-            <Typography variant="subtitle1">R$ {price}</Typography>
+            <Typography variant="subtitle1">R$ {product.price}</Typography>
           </Grid>
           <Button
             variant="contained"
-            onClick={() => dispatch(cartActions.Add(cart))}
+            onClick={() => dispatch(cartActions.Add(cart, product))}
           >
             Adicionar
           </Button>

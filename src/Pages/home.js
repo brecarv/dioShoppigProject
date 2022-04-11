@@ -61,12 +61,7 @@ const HomePage = ({ products }) => {
       <Grid container xs={9} spacing={3} className={classes.root}>
         {products.map((item) => {
           return (
-            <Card
-              key={item.id_product}
-              name={item.name_product}
-              price={item.price}
-              imgUrl={item.image}
-            >
+            <Card key={item.id_product} product={item}>
               {item.name_product}
             </Card>
           );
