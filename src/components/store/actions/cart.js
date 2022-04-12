@@ -22,8 +22,18 @@ const RemoveItem = (cart, product) => {
   };
 };
 
+const DeleteItem = (cart, product) => {
+  return {
+    type: "DELETE_ITEM",
+    cart,
+    product,
+  };
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   Add,
   AddItem,
   RemoveItem,
+  DeleteItem,
 };
