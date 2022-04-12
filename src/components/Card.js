@@ -36,7 +36,9 @@ const Card = ({ product, children }) => {
               alt={product.name_product}
             />
             <Typography variant="h6">{children}</Typography>
-            <Typography variant="subtitle1">R$ {product.price}</Typography>
+            <Typography variant="subtitle1">
+              R$ {product.price.toFixed(2)}
+            </Typography>
           </Grid>
           <Button
             variant="contained"

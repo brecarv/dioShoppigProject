@@ -6,7 +6,11 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  console.log(cart);
+  let totalPrice = 0;
+
+  for (let i = 0; i < cart.Cart.length; i++) {
+    totalPrice += cart.Cart[i].price * cart.Cart[i].quantity;
+  }
 
   return (
     <>
@@ -118,7 +122,7 @@ const Cart = () => {
                       Total
                     </th>
                     <th colSpan="3">{cart.value} itens</th>
-                    <th colSpan="2">R$ 200.00</th>
+                    <th colSpan="2">R$ {totalPrice.toFixed(2)}</th>
                   </tr>
                 </tbody>
               </table>
