@@ -30,10 +30,18 @@ const DeleteItem = (cart, product) => {
   };
 };
 
+const ChangeCart = (localCart) => {
+  return {
+    type: "CHANGE_CART",
+    localCart,
+  };
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   Add,
   AddItem,
   RemoveItem,
   DeleteItem,
+  ChangeCart,
 };

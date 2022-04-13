@@ -67,6 +67,8 @@ export default function cart(state = INITIAL_STATE, action) {
           return item.id !== action.product.id;
         }),
       };
+    case "CHANGE_CART":
+      return (state = action.localCart);
 
     default:
       return state;
