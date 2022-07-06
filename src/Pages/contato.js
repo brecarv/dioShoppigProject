@@ -1,7 +1,16 @@
-import { Button, Grid, TextField } from "@material-ui/core";
 import React from "react";
+import { useState, useEffect } from "react";
+import { Button, Grid, TextField } from "@material-ui/core";
 
 const Contato = () => {
+  const [message, setMessage] = useState([]);
+
+  useEffect(async () => {
+    const response = await fetch("API");
+    const data = await response.json();
+    setMessage(data);
+  });
+
   return (
     <>
       <Grid container direction="row" xs={12}>
