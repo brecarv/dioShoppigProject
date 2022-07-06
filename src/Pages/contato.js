@@ -4,12 +4,14 @@ import { Button, Grid, TextField } from "@material-ui/core";
 
 const Contato = () => {
   const [message, setMessage] = useState([]);
+  const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
 
   useEffect(async () => {
     const response = await fetch("API");
     const data = await response.json();
     setMessage(data);
-  });
+  }, []);
 
   return (
     <>
@@ -20,16 +22,19 @@ const Contato = () => {
       <Button className="mt-2" variant="contained" color="primary">
         Sent
       </Button>
-
-      <div className="card mt-2">
-        <div className="card-body">
-          <h5 className="card-title">Autor</h5>
-          <p className="card-text"> Conteúdo da mensagem.</p>
-          <p className="card-text">
-            <small className="text-muted">Data da mensagem.</small>
-          </p>
-        </div>
-      </div>
+      {message.map((content) => {
+        return (
+          <div className="card mt-2 " key={content.id}>
+            <div className="card-body">
+              <h5 className="card-title">{content.email}</h5>
+              <p className="card-text"> {content.message}</p>
+              <p className="card-text">
+                <small className="text-muted">{content.created_at}</small>
+              </p>
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 };
